@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist Results</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        table, th, td { border: 1px solid #ddd; }
+        th, td { padding: 10px; text-align: left; }
+        th { background-color: #f4f4f4; }
+        .passed { color: green; font-weight: bold; }
+        .failed { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Checklist Evaluation</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Rule</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% results.forEach(result => { %>
+                <tr>
+                    <td><%= result.name %></td>
+                    <td class="<%= result.status.toLowerCase() %>"><%= result.status %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>
